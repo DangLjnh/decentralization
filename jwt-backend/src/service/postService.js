@@ -43,11 +43,16 @@ const updatePostApi = async (file, data) => {
             console.log(result, error);
           }
         );
-      const res = await db.Post.update(totalData, {
-        where: {
-          id: dataPost.postID,
+      const res = await db.Post.update(
+        {
+          ...totalData,
         },
-      });
+        {
+          where: {
+            id: dataPost.postID,
+          },
+        }
+      );
       return {
         EM: "Update post successfully",
         EC: 0,

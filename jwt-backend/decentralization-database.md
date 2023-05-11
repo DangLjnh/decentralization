@@ -1,9 +1,9 @@
 INSERT INTO `Category` (`id`, `name`, `slug`, `status`, `createdAt`, `updatedAt`) VALUES
-(3, 'Quan điểm tranh luận', 'quan_diem_tranh_luan', '2022-11-27 08:46:07', '2022-11-28 14:39:48'),
-(8, 'Truyền thông', 'Truyen_thong', '2022-11-29 14:27:05', '2022-11-29 14:27:05'),
-(9, 'Xu hướng cuộc sống', 'Xu_huong_cuoc_song', '2022-11-29 14:27:05', '2022-11-29 14:27:05'),
-(10, 'Điện ảnh', 'DJien_anh', '2022-11-29 14:27:05', '2022-11-29 14:27:05'),
-(11, 'Phát triển bản thân', 'Phat_trien_ban_than', '2022-11-29 14:31:01', '2022-11-29 14:31:01');
+(3, 'Quan điểm tranh luận', 'quan_diem_tranh_luan', null,'2022-11-27 08:46:07', '2022-11-28 14:39:48'),
+(8, 'Truyền thông', 'Truyen_thong',null, '2022-11-29 14:27:05', '2022-11-29 14:27:05'),
+(9, 'Xu hướng cuộc sống', 'Xu_huong_cuoc_song',null, '2022-11-29 14:27:05', '2022-11-29 14:27:05'),
+(10, 'Điện ảnh', 'DJien_anh',null, '2022-11-29 14:27:05', '2022-11-29 14:27:05'),
+(11, 'Phát triển bản thân', 'Phat_trien_ban_than',null, '2022-11-29 14:31:01', '2022-11-29 14:31:01');
 
 INSERT INTO `Group` (`id`, `name`, `desc`, `createdAt`, `updatedAt`) VALUES
 (1, 'Dev', 'Developer', '2022-11-18 15:22:32', '2022-11-21 19:46:19'),
