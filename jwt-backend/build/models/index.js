@@ -5,14 +5,15 @@ var fs = require("fs");
 var path = require("path");
 var Sequelize = require("sequelize");
 var basename = path.basename(__filename);
-var env = process.env.NODE_ENV || "development";
-// const config = require(__dirname + '/../config/config.json')[env];
+var mysql2 = require("mysql2");
 var db = {};
 var sequelize;
 var customizeConfig = {
   host: process.env.DB_HOST,
   dialect: process.env.DB_DIALECT,
+  dialectModule: mysql2,
   logging: false,
+  port: process.env.DB_PORT,
   dialectOptions: process.env.DB_SSL === "true" ? {
     ssl: {
       require: true,

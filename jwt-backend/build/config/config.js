@@ -8,6 +8,7 @@ module.exports = {
     database: process.env.DB_DATABASE_NAME,
     host: process.env.DB_HOST,
     dialect: process.env.DB_DIALECT,
+    port: process.env.DB_PORT,
     define: {
       freezeTableName: true
     },

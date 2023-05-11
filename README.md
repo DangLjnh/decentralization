@@ -13,3 +13,5 @@ DB_PASSWORD=123456
 DB_PORT=3309
 
 Step 7. open http://localhost:3000/
+
+Link demo: http://14.225.211.71/
