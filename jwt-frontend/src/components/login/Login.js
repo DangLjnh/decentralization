@@ -98,7 +98,9 @@ const Login = () => {
           </div>
           <div className="gap-4 py-3 rounded shadow content-right d-flex flex-column col-md-4 col-12">
             <div className="form-group">
-              <label htmlFor="email">Email or Phone: </label>
+              <label htmlFor="email">
+                Email or Phone: dangthanhnhatlinh@gmail.com
+              </label>
               <input
                 type="text"
                 name="valueLogin"
@@ -111,7 +113,7 @@ const Login = () => {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="password">Password: </label>
+              <label htmlFor="password">Password: Linh1234</label>
               <input
                 type="password"
                 className={`${

@@ -1,0 +1,9 @@
+services:
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      - MYSQL_DATABASE=decentralization
+      - MYSQL_ROOT_PASSWORD=123456
+    ports:
+      - "3309:3306"

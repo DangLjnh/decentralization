@@ -95,37 +95,30 @@ const AddNewPost = () => {
   };
   const handleSavePost = async () => {
     console.log(name.length);
-    if (name.length < 5 || name.length > 10) {
-      toast.error(
-        "Your name has been greater than 5 character and less than 10 character"
-      );
+    setLoading(true);
+    const formData = new FormData();
+    const data = {
+      ...dataPost,
+      name: name,
+      slug: slug || slugify(name),
+      userID: user?.account?.id,
+      content,
+      hot,
+    };
+    formData.append("file", fileImg);
+    formData.append("data", JSON.stringify(data));
+    const res = await createPost(formData);
+    if (+res.EC === 0) {
+      toast.success("Upload post succesful!");
       setLoading(false);
+      setFileImg("");
+      setBase64Img("");
+      setDataPost(defaultData);
+      setContent("");
+      setName("");
+      setSlug("");
     } else {
-      setLoading(true);
-      const formData = new FormData();
-      const data = {
-        ...dataPost,
-        name: name,
-        slug: slug || slugify(name),
-        userID: user?.account?.id,
-        content,
-        hot,
-      };
-      formData.append("file", fileImg);
-      formData.append("data", JSON.stringify(data));
-      const res = await createPost(formData);
-      if (+res.EC === 0) {
-        toast.success("Upload post succesful!");
-        setLoading(false);
-        setFileImg("");
-        setBase64Img("");
-        setDataPost(defaultData);
-        setContent("");
-        setName("");
-        setSlug("");
-      } else {
-        toast.error(res.EM);
-      }
+      toast.error(res.EM);
     }
   };
   useEffect(() => {

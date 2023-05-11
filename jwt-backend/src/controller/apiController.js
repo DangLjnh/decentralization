@@ -28,6 +28,7 @@ const handleReigster = async (req, res) => {
     });
   }
 };
+
 const handleLogin = async (req, res) => {
   try {
     const data = await handleUserLogin(req.body);

@@ -5,6 +5,7 @@ import bcrypt from "bcryptjs";
 import { Op } from "sequelize";
 import { getGroupWithRole } from "./JwtService";
 import { createJwt } from "../middleware/JwtAction";
+
 const checkEmailExist = async (email) => {
   const isExistUser = await db.User.findOne({
     where: { email },

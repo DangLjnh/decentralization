@@ -85,6 +85,7 @@ const hashPassword = (userPassword) => {
   let hashPassword = bcrypt.hashSync(userPassword, salt); //hash password
   return hashPassword;
 };
+
 const createNewUser = async (rawUserData) => {
   const isPhoneExist = await checkPhoneExist(rawUserData.phone);
   const isEmailExist = await checkEmailExist(rawUserData.email);
@@ -127,6 +128,7 @@ const createNewUser = async (rawUserData) => {
     };
   }
 };
+
 const updateUser = async (data) => {
   try {
     if (!data.groupID) {

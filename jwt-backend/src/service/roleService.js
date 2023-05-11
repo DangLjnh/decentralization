@@ -158,6 +158,10 @@ const getRoleByGroupApi = async (groupID) => {
 };
 
 const assignRoleToGroupApi = async (data) => {
+  console.log(
+    "🚀 ~ file: roleService.js:161 ~ assignRoleToGroupApi ~ data:",
+    data
+  );
   try {
     if (data && data.length > 0) {
       await db.Group_Role.destroy({

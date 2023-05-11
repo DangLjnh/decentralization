@@ -1,26 +1,41 @@
 "use strict";
 require("dotenv").config();
-const fs = require("fs"); //read write file
+const fs = require("fs");
 const path = require("path");
 const Sequelize = require("sequelize");
 const basename = path.basename(__filename);
-const env = process.env.NODE_ENV || "development"; //choose environment
-const config = require(__dirname + "/../config/config.json")[env];
-const db = {};
+const mysql2 = require("mysql2");
 
-//connect db
+const db = {};
 let sequelize;
-if (config.use_env_variable) {
-  sequelize = new Sequelize(process.env[config.use_env_variable], config);
-} else {
-  sequelize = new Sequelize(
-    config.database,
-    config.username,
-    config.password,
-    config
-  );
-}
-//nap tat ca model da khai bao
+const customizeConfig = {
+  host: process.env.DB_HOST,
+  dialect: process.env.DB_DIALECT,
+  dialectModule: mysql2,
+  logging: false,
+  port: process.env.DB_PORT,
+  dialectOptions:
+    process.env.DB_SSL === "true"
+      ? {
+          ssl: {
+            require: true,
+            rejectUnauthorized: false,
+          },
+        }
+      : {},
+  timezone: "+07:00",
+  define: {
+    freezeTableName: true,
+  },
+};
+
+sequelize = new Sequelize(
+  process.env.DB_DATABASE_NAME,
+  process.env.DB_USERNAME,
+  process.env.DB_PASSWORD,
+  customizeConfig
+);
+
 fs.readdirSync(__dirname)
   .filter((file) => {
     return (
@@ -41,7 +56,6 @@ Object.keys(db).forEach((modelName) => {
   }
 });
 
-db.sequelize = sequelize;
 db.Sequelize = Sequelize;
-
+db.sequelize = sequelize;
 module.exports = db;

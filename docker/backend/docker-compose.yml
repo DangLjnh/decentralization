@@ -1,0 +1,22 @@
+services:
+  database-mysql:
+    image: mysql:8.0
+    restart: always
+    environment:
+      - MYSQL_DATABASE=decentralization
+      - MYSQL_ROOT_PASSWORD=123456
+    ports:
+      - "3309:3306"
+    # expose:
+    #   - 3306
+  backend:
+    build:
+      context: ../../jwt-backend
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    environment:
+      # - DB_HOST=host.docker.internal
+      - DB_PORT=3306
+      - DB_HOST=database-mysql
+    ports:
+      - 8080:8080

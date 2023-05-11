@@ -33,7 +33,7 @@ const updatePostApi = async (file, data) => {
   };
   try {
     let post = await db.Post.findOne({
-      where: { postID: dataPost.postID },
+      where: { id: dataPost.postID },
     });
     if (post) {
       file !== undefined &&
@@ -45,13 +45,9 @@ const updatePostApi = async (file, data) => {
         );
       const res = await db.Post.update(totalData, {
         where: {
-          postID: dataPost.postID,
+          id: dataPost.postID,
         },
       });
-      console.log(
-        "🚀 ~ file: postService.js ~ line 47 ~ updatePostApi ~ res",
-        res
-      );
       return {
         EM: "Update post successfully",
         EC: 0,
