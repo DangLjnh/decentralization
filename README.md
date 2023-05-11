@@ -10,15 +10,15 @@ Step 4. npx sequelize-cli db:migrate
 
 4.1 change column id to postID in table Post
 
-Step 5. Add data to database by create connection in DBeaver
+Step 5. Add data to database in file decentralization-database
 
-Step 6. Create connection
+Step 6. create connection in DBeaver
 
 DB_HOST=localhost
 DB_DATABASE_NAME=decentralization
 DB_USERNAME=root
 DB_PASSWORD=123456
-DB_PORT=3309
+DB_PORT=3306
 
 Step 7. open http://localhost:3000/
 
