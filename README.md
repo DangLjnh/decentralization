@@ -20,6 +20,6 @@ DB_USERNAME=root
 DB_PASSWORD=123456
 DB_PORT=3306
 
-Step 7. open http://localhost:3000/
+Step 7. open http://localhost/
 
 Link demo: http://14.225.211.71/
